@@ -104,6 +104,8 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true,     
-    "rootDir":"src"                         /* Skip type checking all .d.ts files. */
+    "rootDir":"src",
+    "outDir":"dist",
+    "declaration":true                    /* Skip type checking all .d.ts files. */
   }
 }

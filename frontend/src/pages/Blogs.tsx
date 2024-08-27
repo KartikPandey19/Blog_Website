@@ -1,12 +1,22 @@
 import {BlogCard} from "../components/BlogCard";
 import { useBlogs } from "../hooks/index";
 import { AppBar } from "../components/AppBar";
+import { BlogSkeleton } from "../components/BlogSkeleton";
 export const Blogs=()=>{
     const {loading,blogs} = useBlogs();
 
     if(loading){
-        return <div>
-            loading....
+    return <div>
+        <AppBar />
+    <div className="flex justify-center">
+        <div>
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+        </div>
+        </div>
         </div>
     }
     return <div>

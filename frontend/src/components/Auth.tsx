@@ -13,11 +13,10 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
     async function sendRequest(){
         try{
         const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type==="signup" ? "signup" : "signin"}`,postInputs);
-        console.log(response);
-
-        const jwt = response.data;
-        console.log(jwt.jwt);
-         localStorage.setItem("token",jwt.jwt);
+        const jwt = response.data.jwt;
+        const userName = response.data.userName;
+         localStorage.setItem("token",jwt);
+         localStorage.setItem("userName",JSON.stringify(userName));
         navigate("/blogs");
         }catch(e){
             alert("Error while siginingUp");
@@ -40,10 +39,10 @@ export const Auth = ({type}:{type: "signup" | "signin"})=>{
             {type==="signup" ? <LabelledInput label="Name" placeholder="John" onChange={(e)=>{
                 setPostInputs({...postInputs,name:e.target.value});
             }}/> : null}
-            <LabelledInput label="Username" placeholder="John@abc.com" onChange={(e)=>{
+            <LabelledInput label="Username" placeholder="john@email.com" onChange={(e)=>{
                 setPostInputs({...postInputs,email:e.target.value});
             }}/>
-             <LabelledInput label="Password" type={"password"} onChange={(e)=>{
+             <LabelledInput label="Password" placeholder="abc123" type={"password"} onChange={(e)=>{
                 setPostInputs({...postInputs,password:e.target.value});
             }}/>
             <button onClick={sendRequest} type="button" className="mt-8 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">{type=== "signup"?"Sign Up":"Sign In"}</button>

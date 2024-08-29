@@ -4,12 +4,12 @@ export const HomeAppBar = () => {
 
     return <div className="border-b flex justify-between">
          <Link to={'/'}>
-        <div className="flex justify-center flex-col cursor-pointer pl-12 py-4">
-            Blogz
+        <div className="flex justify-center cursor-pointer pl-12 py-4 text-xl font-bold font-mono">
+            BLOGZ
         </div>
         </Link>
 
-        <div className="py-4">
+        <div className="py-2">
 
         <Link to={"/signin"}>
         <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 ">Sign in</button>

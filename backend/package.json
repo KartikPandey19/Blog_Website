@@ -8,6 +8,8 @@
     "@prisma/client": "^5.17.0",
     "@prisma/extension-accelerate": "^1.1.0",
     "@santarasenju/blog-common": "^1.0.5",
+    "bcrypt": "^5.1.1",
+    "bun": "^1.1.26",
     "hono": "^4.4.13",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^5.17.0",

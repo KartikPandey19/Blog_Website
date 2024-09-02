@@ -7,7 +7,6 @@ export const BlogSkeleton = () => {
                 <div className="h-2 bg-gray-200 rounded-full  mb-2.5"></div>
                 <div className="h-2 bg-gray-200 rounded-full  mb-2.5"></div>
 
-
                 <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">
                     <div className="h-2 bg-gray-200 rounded-full max-w-[330px] mb-2.5"></div>
 

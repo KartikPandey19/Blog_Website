@@ -8,8 +8,10 @@
     "@prisma/client": "^5.17.0",
     "@prisma/extension-accelerate": "^1.1.0",
     "@santarasenju/blog-common": "^1.0.5",
+    "asserts": "^4.0.2",
     "bcrypt": "^5.1.1",
     "bun": "^1.1.26",
+    "events": "^3.3.0",
     "hono": "^4.4.13",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^5.17.0",
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
+    "@types/bcrypt": "^5.0.2",
     "wrangler": "^3.57.2"
   }
 }

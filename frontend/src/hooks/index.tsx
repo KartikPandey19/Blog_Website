@@ -14,7 +14,6 @@ export interface Blog {
 export const useBlogs  = () => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([]);
-    
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/blog/bulk`,{
             headers:{
@@ -25,7 +24,7 @@ export const useBlogs  = () => {
             setBlogs(response.data.blog);
             setLoading(false);
         })
-    },[])
+    },[setBlogs])
     return {
         loading,
         blogs
@@ -35,6 +34,7 @@ export const useBlogs  = () => {
 export const useBlog = ({id}:{id:string}) => {
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
+
 
     useEffect(() =>{
         axios.get(`${BACKEND_URL}/api/v1/blog/get/${id}`,{

@@ -6,11 +6,12 @@ import {Blog} from './pages/Blog';
 import {Blogs} from './pages/Blogs';
 import {Publish} from './pages/Publish';
 import { Landing } from './pages/Landing';
+import { RecoilRoot } from 'recoil';
 
 function App() {
 
   return (
-    <>
+    <RecoilRoot>
     <BrowserRouter>
     <Routes>
     <Route path="/" element={< Landing/>} />
@@ -21,7 +22,7 @@ function App() {
       <Route path="/publish" element={<Publish/>} />
     </Routes>
     </BrowserRouter>
-    </>
+    </RecoilRoot>
   )
 }
 

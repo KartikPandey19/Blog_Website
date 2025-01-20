@@ -1,6 +1,6 @@
 import { Blog } from "../hooks"
 import { AppBar } from "./AppBar"
-import { Avatar } from "./BlogCard"
+import { Avatar } from "./Avatar"
 
 export const DetailBlog = ({blog}:{blog:Blog}) => {
 

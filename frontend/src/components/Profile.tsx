@@ -1,9 +1,12 @@
+import { useEffect } from "react"
 export const Profile = () => {
-
-    return <div>
-        Name
-        <div>
-            logout
-        </div>
-    </div>
+    useEffect(()=>{
+        {console.log("Profile")}
+    },[])
+    return(
+       <div>
+    
+        <h1>Profile</h1>
+       </div>
+    )
 }

@@ -1,9 +1,8 @@
 import { AppBar } from "../components/AppBar"
 import axios  from "axios"
 import { BACKEND_URL } from "../config"
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 

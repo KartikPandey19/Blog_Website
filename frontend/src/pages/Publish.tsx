@@ -1,12 +1,75 @@
 import { AppBar } from "../components/AppBar"
 import axios  from "axios"
 import { BACKEND_URL } from "../config"
+import  {Editors}  from "../components/Editor/Editors";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
+
+
 export const Publish = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const quillRef = useRef();
     const navigate = useNavigate();
+    const saveBlog = async()=> {
+    const response = await axios.post(`${BACKEND_URL}/api/v1/blog`,{
+            title,
+            content:description
+        },{
+            headers:{
+                Authorization: localStorage.getItem("token")
+            }
+        });
+        navigate(`/blog/${response.data.id}`)
+       } 
+       const handleSave = (content: string) => {
+        setDescription(content);
+        saveBlog();
+  };
+  const myColors = [
+    "purple",
+    "#785412",
+    "#452632",
+    "#856325",
+    "#963254",
+    "#254563",
+    "white"
+  ];
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ align: ["right", "center", "justify"] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      [{ color: myColors }],
+      [{ background: myColors }]
+    ]
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "link",
+    "color",
+    "image",
+    "background",
+    "align"
+  ];
+    const handleProcedureContentChange = (content: any) => {
+      setDescription(content);
+    };
+        
     return (
        <div>
         <AppBar />
@@ -21,11 +84,15 @@ export const Publish = () => {
                 />
             
             <div className="pt-4">
-            <TextEditor onChange={(e) =>{
-                setDescription(e.target.value)
-            }} />
+            <ReactQuill
+                    theme="snow"
+                    modules={modules}
+                    formats={formats}
+                    value={description}
+                    onChange={handleProcedureContentChange}
+                  />
             <button onClick={async()=>{
-        const response = await axios.post(`${BACKEND_URL}/api/v1/blog`,{
+            const response = await axios.post(`${BACKEND_URL}/api/v1/blog`,{
             title,
             content:description
         },{
@@ -40,6 +107,8 @@ export const Publish = () => {
             </div>
         </div>
         </div>
+        
+        
         
        </div>
     )

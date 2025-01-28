@@ -1,6 +1,7 @@
 import { Blog } from "../hooks"
 import { AppBar } from "./AppBar"
 import { Avatar } from "./Avatar"
+import parse from 'html-react-parser';
 
 export const DetailBlog = ({blog}:{blog:Blog}) => {
 
@@ -16,7 +17,7 @@ export const DetailBlog = ({blog}:{blog:Blog}) => {
                 post on 3d april 2024
             </div>
             <div className="pt-4">
-                {blog.content}
+                {parse(blog.content)}
             </div>
         </div>
         <div className="col-span-4 ">

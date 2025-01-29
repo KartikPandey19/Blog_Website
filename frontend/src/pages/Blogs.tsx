@@ -2,7 +2,6 @@ import {BlogCard} from "../components/BlogCard";
 import { useBlogs } from "../hooks/index";
 import { AppBar } from "../components/AppBar";
 import { BlogSkeleton } from "../components/BlogSkeleton";
-import parse from 'html-react-parser';
 
 export const Blogs=()=>{
     const {loading,blogs} = useBlogs();

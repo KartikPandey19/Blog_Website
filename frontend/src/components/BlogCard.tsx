@@ -5,7 +5,7 @@ interface BlogCardProps{
     id:string
     authorName: string
     title: string
-    content: string
+    content: React.ReactNode
     publishedDate: string
 }
 

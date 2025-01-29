@@ -2,6 +2,8 @@ import {BlogCard} from "../components/BlogCard";
 import { useBlogs } from "../hooks/index";
 import { AppBar } from "../components/AppBar";
 import { BlogSkeleton } from "../components/BlogSkeleton";
+import parse from 'html-react-parser';
+
 export const Blogs=()=>{
     const {loading,blogs} = useBlogs();
 
@@ -26,7 +28,7 @@ export const Blogs=()=>{
           {blogs.map(blog =><BlogCard 
           id={blog.id}
         authorName={blog.author.name || "Anonymous"}
-        publishedDate="10/01/2000" 
+        publishedDate="10/09/2024" 
         title={blog.title}
         content={blog.content}
         />

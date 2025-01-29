@@ -14,14 +14,14 @@ export const DetailBlog = ({blog}:{blog:Blog}) => {
                 {blog.title}
             </div>
             <div className="text-slate-500 pt-2">
-                post on 3d april 2024
+                post on 3rd april 2024
             </div>
             <div className="pt-4">
                 {parse(blog.content)}
             </div>
         </div>
         <div className="col-span-4 ">
-            <div className="text-slate-600 text-lg">
+            <div className="text-slate-600 text-lg ">
             Author
             </div>
             <div className="flex w-full">
@@ -30,7 +30,7 @@ export const DetailBlog = ({blog}:{blog:Blog}) => {
                 </div>
                 <div>
                 <div className="text-xl font-bold">
-            {blog.author.name || "Anonymous"}
+            {blog.author.name.toUpperCase() || "Anonymous"}
             </div>
             <div className="pt-2 text-slate-500">
                 Random phrases by user for a brief intro type details

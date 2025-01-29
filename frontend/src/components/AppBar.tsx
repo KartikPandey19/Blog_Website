@@ -2,7 +2,6 @@ import { Avatar } from './Avatar';
 import {Link} from "react-router-dom"
 export const AppBar = () =>{
     const userName = JSON.parse(localStorage.getItem('userName') || '""')||"Guest";
-    console.log(userName);
     return <div className="border-b flex justify-between ">
         <Link to={'/blogs'}>
         <div className="flex justify-center cursor-pointer pl-12 py-4 text-xl font-bold font-mono">

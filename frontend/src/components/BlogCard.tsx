@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom"
 import { Avatar } from "./Avatar"
-
 interface BlogCardProps{
     id:string
     authorName: string
     title: string
-    content: React.ReactNode
+    content: string
     publishedDate: string
 }
 

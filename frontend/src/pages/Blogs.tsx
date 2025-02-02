@@ -2,6 +2,7 @@ import {BlogCard} from "../components/BlogCard";
 import { useBlogs } from "../hooks/index";
 import { AppBar } from "../components/AppBar";
 import { BlogSkeleton } from "../components/BlogSkeleton";
+import  Loader  from "../components/Loader";
 
 export const Blogs=()=>{
     const {loading,blogs} = useBlogs();
@@ -16,6 +17,7 @@ export const Blogs=()=>{
             <BlogSkeleton />
             <BlogSkeleton />
             <BlogSkeleton />
+            <Loader />
         </div>
         </div>
         </div>
@@ -27,7 +29,7 @@ export const Blogs=()=>{
           {blogs.map(blog =><BlogCard 
           id={blog.id}
         authorName={blog.author.name || "Anonymous"}
-        publishedDate="10/09/2024" 
+        publishedDate={blog.date.split("T")[0]} 
         title={blog.title}
         content={blog.content}
         />

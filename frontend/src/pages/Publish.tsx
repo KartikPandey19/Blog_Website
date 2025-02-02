@@ -5,14 +5,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import  Loader from "../components/Loader";
 
 
 
 export const Publish = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const saveBlog = async()=> {
+        setLoading(true);
     const response = await axios.post(`${BACKEND_URL}/api/v1/blog`,{
             title,
             content:description
@@ -66,6 +69,7 @@ export const Publish = () => {
         
     return (
        <div>
+        {loading && <Loader />}
         <AppBar />
          <div className="flex justify-center pt-12">
             <div className="max-w-screen-lg w-full">

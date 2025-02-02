@@ -14,7 +14,7 @@ export const DetailBlog = ({blog}:{blog:Blog}) => {
                 {blog.title}
             </div>
             <div className="text-slate-500 pt-2">
-                post on 3rd april 2024
+               {blog.date.split("T")[0]}
             </div>
             <div className="pt-4">
                 {parse(blog.content)}

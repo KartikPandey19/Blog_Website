@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import { Avatar } from "./Avatar"
+import parse from 'html-react-parser';
+
 interface BlogCardProps{
     id:string
     authorName: string
@@ -34,7 +36,7 @@ export const BlogCard =({
             {title}
         </div>
         <div className="text-md font-thin">
-            {content.slice(0,100)+ "...."}
+            {parse(content.slice(0, 100) + "....")}
         </div>
         <div className="text-slate-500 text-sm font-thin pt-4">
             {`${Math.ceil(content.length/1000)} minutes(s) read`}

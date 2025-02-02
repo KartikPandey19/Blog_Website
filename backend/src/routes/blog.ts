@@ -14,6 +14,7 @@ export const blogRouter = new Hono<{
 }>();
 
 blogRouter.use("/*", async(c, next) => {
+    
     if (c.req.path === "/api/v1/blog/bulk") {
         return next();
     }
@@ -89,6 +90,7 @@ blogRouter.get("/bulk", async (c) => {
             content: true,
             title: true,
             id: true,
+            date: true,
             author:{
                 select:{
                     name:true

@@ -13,30 +13,30 @@ export const blogRouter = new Hono<{
     }
 }>();
 
-blogRouter.use("/*", async(c, next) => {
+// blogRouter.use("/*", async(c, next) => {
     
-    if (c.req.path === "/api/v1/blog/bulk") {
-        return next();
-    }
-    const authHeader  = c.req.header("authorization") || "";
-    try{
-        const user = await verify(authHeader,c.env.JWT_SECRET);
-    if(user){
-        c.set("userId", user.id as string);
-        await next();
-    }else{
-        c.status(403);
-        return c.json({
-            message:"Login to see this content"
-        })
-    }
-    }catch(e){
-        c.status(403);
-        return c.json({
-            message:"Login to see this content"
-        })
-    }
-});
+//     if (c.req.path === "/api/v1/blog/bulk") {
+//         return next();
+//     }
+//     const authHeader  = c.req.header("authorization") || "";
+//     try{
+//         const user = await verify(authHeader,c.env.JWT_SECRET);
+//     if(user){
+//         c.set("userId", user.id as string);
+//         await next();
+//     }else{
+//         c.status(403);
+//         return c.json({
+//             message:"Login to see this content"
+//         })
+//     }
+//     }catch(e){
+//         c.status(403);
+//         return c.json({
+//             message:"Login to see this content"
+//         })
+//     }
+// });
 
 blogRouter.post("/", async(c) => {
     const body = await c.req.json();

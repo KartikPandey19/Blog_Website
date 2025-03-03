@@ -2,8 +2,10 @@ import { Link } from "react-router-dom"
 
 export const HomeAppBar = () => {
 
-    return <div className="border-b flex justify-between">
-         <Link to={'/'}>
+    return (
+        <>
+    <div className="border-b flex justify-between">
+         <Link to={'/'}> 
         <div className="flex justify-center cursor-pointer pl-12 py-4 text-xl font-bold font-mono">
             BLOGZ
         </div>
@@ -19,4 +21,6 @@ export const HomeAppBar = () => {
         </Link>
         </div>
     </div>
+    </>
+    )
 }
